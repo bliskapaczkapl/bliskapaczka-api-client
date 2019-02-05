@@ -11,12 +11,15 @@ class PricingTest extends TestCase
     protected function setUp()
     {
         $this->pricingData = [
-            "dimensions" => [
-                "height" => 20,
-                "length" => 20,
-                "width" => 20,
-                "weight" => 2
-            ]
+            "parcel" => [
+                "dimensions" => [
+                    "height" => 20,
+                    "length" => 20,
+                    "width" => 20,
+                    "weight" => 2
+                ]
+            ],
+            "deliveryType" => "P2P"
         ];
 
         $apiKey = '6061914b-47d3-42de-96bf-0004a57f1dba';

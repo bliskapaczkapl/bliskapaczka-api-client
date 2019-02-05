@@ -12,9 +12,9 @@ use Bliskapaczka\ApiClient\Exception;
  * @author  Mateusz Koszutowski (mkoszutowski@divante.pl)
  * @version 0.1.0
  */
-class Waybill extends AbstractBliskapaczka implements BliskapaczkaInterface
+class Retry extends AbstractBliskapaczka implements BliskapaczkaInterface
 {
-    const REQUEST_URL = 'order/[[id]]/waybill';
+    const REQUEST_URL = 'order/[[id]]/retry';
 
     private $orderId = null;
 
@@ -29,7 +29,7 @@ class Waybill extends AbstractBliskapaczka implements BliskapaczkaInterface
     }
 
     /**
-     * Return valid URL for API call get waybill for order
+     * Return valid URL for API call for order cancelation
      *
      * @return string
      */
@@ -45,11 +45,11 @@ class Waybill extends AbstractBliskapaczka implements BliskapaczkaInterface
     /**
      * Call API method create order
      *
-     * @return json $response
+     * @param array $data
      */
-    public function get()
+    public function retry()
     {
-        $response = $this->doCall($this->getUrl(), json_encode(''), array(), 'GET');
+        $response = $this->doCall($this->getUrl(), json_encode(''), array(), 'POST');
 
         return $response;
     }

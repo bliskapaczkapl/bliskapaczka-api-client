@@ -70,7 +70,7 @@ class TodoorTest extends TestCase
         $apiClientTodoor = new Advice($this->configMock);
         $apiClientTodoor->setApiUrl($apiUrl);
 
-        $this->assertEquals('order/advice/todoor', $apiClientTodoor->getUrl());
+        $this->assertEquals('order/advice', $apiClientTodoor->getUrl());
     }
 
     public function testCreate()

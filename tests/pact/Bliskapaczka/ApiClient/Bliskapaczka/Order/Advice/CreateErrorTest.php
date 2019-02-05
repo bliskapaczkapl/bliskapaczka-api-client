@@ -29,6 +29,7 @@ class CreateErrorTest extends TestCase
             "receiverLastName" => "string",
             "receiverPhoneNumber" => "600555432",
             "receiverEmail" => "eva@example.com",
+            "deliveryType" => "P2P",
             "operatorName" => "INPOST",
             "destinationCode" => "KRA010",
             "postingCode" => "KRA011",
@@ -68,11 +69,24 @@ class CreateErrorTest extends TestCase
      * @expectedException Bliskapaczka\ApiClient\Exception
      * @expectedExceptionMessage Invalid senderPhoneNumber
      */
-    public function testCreateOrder()
+    public function testCreateOrderErrorFromAPIClient()
     {
         $apiClient = new \Bliskapaczka\ApiClient\Bliskapaczka\Order\Advice($this->configMock);
         $apiClient->setApiUrl($this->host);
 
+        $apiClient->create($this->orderData);
+    }
+
+    /**
+     * @expectedException Bliskapaczka\ApiClient\Exception
+     * @expectedExceptionMessage Field should not be blank senderPhoneNumber
+     */
+    public function testCreateOrderErrorFromAPI()
+    {
+        $apiClient = new \Bliskapaczka\ApiClient\Bliskapaczka\Order\Advice('test-test-test-test');
+        $apiClient->setApiUrl($this->host);
+
+        $this->orderData['senderPhoneNumber'] = '606555433';
         $apiClient->create($this->orderData);
     }
 
@@ -118,7 +132,7 @@ class CreateErrorTest extends TestCase
   "provider_state": "Order not created",
   "request": {
     "method": "post",
-    "path": "/v1/order/advice"
+    "path": "/v2/order/advice"
   },
   "response": {
     "status": 200,

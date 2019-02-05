@@ -43,7 +43,7 @@ class CancelTest extends TestCase
         $this->assertEquals('order/' . $id . '/cancel', $apiClientOrder->getUrl());
     }
 
-    public function testGet()
+    public function testCancel()
     {
         $apiUrl = 'http://localhost:1234';
         $id = '000000001P-000000002';

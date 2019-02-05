@@ -29,6 +29,7 @@ class CreateTest extends TestCase
             "receiverLastName" => "string",
             "receiverPhoneNumber" => "600555432",
             "receiverEmail" => "eva@example.com",
+            "deliveryType" => "P2P",
             "operatorName" => "INPOST",
             "destinationCode" => "KRA010",
             "postingCode" => "KRA011",
@@ -80,6 +81,7 @@ class CreateTest extends TestCase
         $this->assertEquals($this->orderData['codValue'], $response->codValue);
 
         $this->assertEquals("WAITING_FOR_PAYMENT", $response->status);
+        $this->assertEquals("P2P", $response->deliveryType);
 
         $this->assertTrue(isset($response->parcel));
         $this->assertTrue(isset($response->parcel->dimensions));
@@ -133,7 +135,7 @@ class CreateTest extends TestCase
   "provider_state": "Order created correctly and ready to send",
   "request": {
     "method": "post",
-    "path": "/v1/order/advice"
+    "path": "/v2/order/advice"
   },
   "response": {
     "status": 200,
@@ -184,7 +186,8 @@ class CreateTest extends TestCase
         "net": 0,
         "vat": 0,
         "gross": 0
-      }
+      },
+      "deliveryType": "P2P"
     }
   }
 }';
