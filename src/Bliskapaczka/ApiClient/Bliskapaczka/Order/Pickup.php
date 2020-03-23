@@ -12,7 +12,7 @@ class Pickup extends AbstractBliskapaczka implements BliskapaczkaInterface
     /** @var string */
     private $orderId = null;
 
-    public function setOrderId( $orderId )
+    public function setOrderId($orderId)
     {
         $this->orderId = $orderId;
     }
