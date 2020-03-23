@@ -46,6 +46,7 @@ class Pickup extends AbstractBliskapaczka implements BliskapaczkaInterface
         if (isset($this->orderId)) {
             $data['orderNumbers'] = $this->orderId;
         }
+
         return $this->doCall($this->getUrl(), json_encode($data), array(), 'POST');
     }
 }
