@@ -13,7 +13,7 @@ use Bliskapaczka\ApiClient\AbstractBliskapaczka;
  */
 class Pickup extends AbstractBliskapaczka implements BliskapaczkaInterface
 {
-    const REQUEST_URL = 'orders/pickup';
+    const REQUEST_URL = 'order/pickup';
 
     /** @var string */
     private $orderId = null;
