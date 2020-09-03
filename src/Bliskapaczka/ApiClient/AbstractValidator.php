@@ -146,6 +146,13 @@ abstract class AbstractValidator
                 $data = 'PL' . $data;
             }
             
+            if ('PL' !== substr($data, 0, 2)) {
+                throw new \Bliskapaczka\ApiClient\Exception(
+                    'Invalid CoD Payout Bank Account Number only Polish accounts allowed',
+                    2
+                );
+            }
+            
             $iban = new \IBAN($data);
             
             if (!$iban->Verify()) {
