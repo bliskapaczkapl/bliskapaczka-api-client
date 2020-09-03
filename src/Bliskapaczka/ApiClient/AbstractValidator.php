@@ -140,12 +140,19 @@ abstract class AbstractValidator
      */
     public static function iban($data)
     {
-        if (!empty($data)) {
-            $iban = new \IBAN('PL' . $data);
-            if (!$iban->Verify()) {
-                throw new \Bliskapaczka\ApiClient\Exception('Invalid CoD Payout Bank Account Number', 1);
-            }
-        }
+    	
+    	if (!empty($data)) {
+    		
+    		if (1 !== preg_match('/^[A-Z]{2}/', $data)) {
+    			$data = 'PL' . $data;
+    		}
+    		
+    		$iban = new \IBAN($data);
+    		
+    		if (!$iban->Verify()) {
+    			throw new \Bliskapaczka\ApiClient\Exception('Invalid CoD Payout Bank Account Number', 1);
+    		}
+    	}
 
         return true;
     }
