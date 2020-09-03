@@ -216,7 +216,7 @@ class OrderTest extends TestCase
      */
     public function testCodPayoutBankAccountNumberWithCountyCode()
     {
-        $this->orderData['codPayoutBankAccountNumber'] = 'PL16102019120000910201486273';
+        $this->orderData['codPayoutBankAccountNumber'] = 'PL16102019120000910201486278';
 
         $order = new Order();
         $order->setData($this->orderData);
