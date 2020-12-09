@@ -59,7 +59,7 @@ abstract class AbstractBliskapaczka
      *
      * @param string $bearer
      * @param string $mode
-     * @param LoggerInterface $logger
+     * @param LoggerInterface|null $logger
      */
     public function __construct($bearer, $mode = 'prod', LoggerInterface $logger = null)
     {

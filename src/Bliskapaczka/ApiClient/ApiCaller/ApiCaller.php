@@ -21,7 +21,7 @@ class ApiCaller
     /**
      * ApiCaller constructor.
      *
-     * @param Logger $logger
+     * @param Logger|null $logger Logger
      */
     public function __construct(Logger $logger = null)
     {
